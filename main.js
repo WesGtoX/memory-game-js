@@ -14,7 +14,7 @@ let cardHTML = "";
 images.forEach(img => {
     cardHTML += `
     <div class="memory-card" data-card="${img}">
-        <img class="front-face" src="img/${img}">
+        <img class="front-face" src="img/${img}"/>
         <img class="back-face" src="img/js-badge.svg">
     </div>
     `;
@@ -22,15 +22,15 @@ images.forEach(img => {
 
 cardBoard.innerHTML = cardHTML + cardHTML;
 
-/** Fim renderização HTML */
+/** Fim da Renderização HTML */
 
 
 const cards = document.querySelectorAll(".memory-card");
 let firstCard, secondCard;
-let lockCard = false;       // bloqueia as 'cards' quando estiver desabilitando as 'cards'.
+let lockCards = false;       // bloqueia as 'cards' quando estiver desabilitando as 'cards'.
 
 function flipCard() {
-    if (lockCard) return false;
+    if (lockCards) return false;
     this.classList.add("flip");
 
     if (!firstCard) {        // verifica se a firstCard foi definica.
@@ -51,7 +51,7 @@ function checkForMatch() {
 }
 
 function disableCards() {
-    lockCard = true;
+    lockCards = true;
     setTimeout(() => {          // delay de um segundo para remover os flips.
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
@@ -72,7 +72,7 @@ function resetCards(isMatch = false) {      // reseta as variáveis.
         firstCard.removeEventListener('click', flipCard);
         secondCard.removeEventListener('click', flipCard);
     }
-    [firstCard, secondCard, lockCard] = [null, null, false]     // sintaxe do ES6
+    [firstCard, secondCard, lockCards] = [null, null, false];     // sintaxe do ES6
 }
 
 cards.forEach(card => card.addEventListener("click",flipCard));

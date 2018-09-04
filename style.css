@@ -9,8 +9,6 @@ body {
     height: 100vh;
     display: flex;
     background-image: linear-gradient(#000,#111);
-    background-repeat: no-repeat;
-    /*background: #696969;*/
 }
 
 #cardboard {
@@ -42,8 +40,8 @@ body {
     width: 100%;
     height: 100%;
     padding: 20px;
-    background: #585858;
     position: absolute;
+    background: #585858;
 }
 
 .front-face {
