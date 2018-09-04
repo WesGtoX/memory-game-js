@@ -1,0 +1,51 @@
+/* zera as configurações do css */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background-image: linear-gradient(#000,#111);
+    background-repeat: no-repeat;
+    /*background: #696969;*/
+}
+
+#cardboard {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;      /* por padrão tem o 'no-wrap', não quebra para a próxima linha. */
+    flex-wrap: wrap;    /* muda a configuração padrão de 'no-wrap' para 'wrap'. */
+}
+
+.memory-card {
+    width: calc(25% - 10px);    /* 'calc()', calcula a porcentagem e reduz 10px das laterais, fazendo com que os cards fiquem em uma matriz de 4 colunas. */
+    height: 33%;
+    margin: 5px;
+    transform-style: preserve-3d;
+    transition: 0.3s;           /* aumenta o tempo de transição do flip do card. */
+    position: relative;         /* corrige a posição dos 'front...' em relação ao 'memory-card'. */
+}
+
+.memory-card:active {           /* ':active', cria uma animação quando clicar. */
+    transform: scale(0.97);
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);     /* vai rodar a imagem, porém o 'js' que ter o papel de escrever os 'flip' nas class. */
+}
+
+.front-face, .back-face {       /* background das imagens. */
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: #585858;
+    position: absolute;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
