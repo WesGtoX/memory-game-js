@@ -1,4 +1,4 @@
-# "Memory Game"
+# Memory Game
 
 A memory game created to study JavaScript.
 
